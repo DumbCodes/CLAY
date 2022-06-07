@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 
 const Container = styled.div`
   width: 100vw;
@@ -73,7 +74,6 @@ const Booking = () => {
           <Input placeholder="Email" />
           <p>Enter Booking Date</p>
           <Input type="date" placeholder="Booking date" />
-          <Input placeholder="Residential Address" type="address" />
           <Input placeholder="Reason for booking" />
 
           <Agreement>

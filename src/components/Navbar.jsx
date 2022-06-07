@@ -103,7 +103,7 @@ const Navbar = () => {
 
         <Right>
           <SearchContainer>
-            <Input placeholder="Search" />
+            <Input type="search" placeholder="Search" />
             <Search style={{ color: "white", fontSize: 24 }} />
           </SearchContainer>
           <Link to="/register">
