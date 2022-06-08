@@ -9,7 +9,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(#1313137d, #0000007d),
-    url("./images/bgimage.png") center;
+    url("./images/bgimg.jpg") center;
   background-size: cover;
   background-attachment: fixed;
 `;

@@ -36,16 +36,16 @@ const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
   ${mobile({ display: "none" })}
 `;
 const PageItems = styled.div`
+  height: 50px;
+  width: 100px;
   color: white;
   font-size: 16px;
   cursor: pointer;
-  margin: 15px;
-  &:hover {
-    transform: scale(1.2);
-  }
+  //margin: 0px 15px;
 `;
 
 // Search, Sign up and cart Container
@@ -88,9 +88,23 @@ const Buttons = styled.button`
   padding: 3px 20px;
   font-size: 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
-  background-color: #bcb6b6;
+  background-color: #fff3f3;
+`;
+const Options = styled.button`
+  margin: 10px 5px;
+  border: 0px;
+  color: white;
+  height: 100%;
+  width: 100%;
+  background-color: #00000005;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000000b1;
+  }
 `;
 
 const LogoutNavbar = () => {
@@ -110,18 +124,18 @@ const LogoutNavbar = () => {
 
         <Center>
           <PageItems>
-            <Buttons>Collection</Buttons>
+            <Options>Collection</Options>
           </PageItems>
           <PageItems>
-            <Buttons>Products</Buttons>
+            <Options>Products</Options>
           </PageItems>
           <Link to="/booking">
             <PageItems>
-              <Buttons>Booking</Buttons>
+              <Options>Booking</Options>
             </PageItems>
           </Link>
           <PageItems>
-            <Buttons>AboutUs</Buttons>
+            <Options>AboutUs</Options>
           </PageItems>
         </Center>
         <Right>

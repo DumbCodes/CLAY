@@ -101,15 +101,11 @@ const Booking = () => {
       );
   };
 
+  const user = localStorage.getItem("token");
+
   return (
     <Container>
       <Wrapper>
-        <h5>
-          <Link to="/">
-            <Back>Home</Back>
-          </Link>
-        </h5>
-
         <Title> Book an Appointment </Title>
         <Form ref={form} onSubmit={sendEmail}>
           <Input placeholder="Name" name="first_name" />
