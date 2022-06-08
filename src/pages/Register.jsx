@@ -31,7 +31,7 @@ const Left = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1c1c1c;
+  background-color: #1c1c1cc9;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 `;
@@ -64,15 +64,17 @@ const BlackButton = styled.button`
   margin: 10px;
 `;
 
-const Right = styled.div`
+const Center = styled.div`
   flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background: linear-gradient(#ffffff83, #d4d4d4ac);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 `;
 
 const Form = styled.form`
@@ -106,8 +108,16 @@ const ErrorMessage = styled.div`
 const H1 = styled.h1`
   margin-top: 0;
   color: white;
-  font-size: 35px;
+  font-size: 32px;
   align-self: center;
+`;
+const Right = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c1cc9;
 `;
 
 const Register = () => {
@@ -151,7 +161,7 @@ const Register = () => {
             <Button type="button">Sign in</Button>
           </Link>
         </Left>
-        <Right>
+        <Center>
           <Form onSubmit={handleSubmit}>
             <h1>Create New Account</h1>
             <Input
@@ -189,6 +199,12 @@ const Register = () => {
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <BlackButton type="submit">Register</BlackButton>
           </Form>
+        </Center>
+        <Right>
+          <H1>Go Home!</H1>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
         </Right>
       </FormContainer>
     </Container>

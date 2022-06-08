@@ -25,15 +25,17 @@ const FormContainer = styled.div`
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
 `;
 
-const Left = styled.div`
+const Center = styled.div`
   flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background: linear-gradient(#ffffff83, #d4d4d4ac);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 `;
 
 const Button = styled.button`
@@ -70,9 +72,15 @@ const Right = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1c1c1c;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background-color: #1c1c1cc9;
+`;
+const Left = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c1cc9;
 `;
 
 const Form = styled.form`
@@ -88,7 +96,7 @@ const Input = styled.input`
   padding: 15px;
   border-radius: 10px;
   background-color: #dedede;
-  margin: 10px 0;
+  margin: 15px 0px;
   font-size: 14px;
 `;
 
@@ -124,7 +132,7 @@ const Login = () => {
       const url = "http://localhost:5000/api/auth";
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
-      window.location = "/";
+      window.location = "/LoggedIn";
     } catch (error) {
       if (
         error.response &&
@@ -140,6 +148,12 @@ const Login = () => {
     <Container>
       <FormContainer>
         <Left>
+          <H1>Go Home!</H1>
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
+        </Left>
+        <Center>
           <Form onSubmit={handleSubmit}>
             <h1>Login Into Your Account</h1>
             <Input
@@ -161,7 +175,7 @@ const Login = () => {
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <BlackButton type="submit">Sign In</BlackButton>
           </Form>
-        </Left>
+        </Center>
         <Right>
           <H1>New Here!</H1>
           <Link to="/register">

@@ -93,7 +93,12 @@ const Buttons = styled.button`
   background-color: #bcb6b6;
 `;
 
-const Navbar = () => {
+const LogoutNavbar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location = "/";
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -124,23 +129,18 @@ const Navbar = () => {
             <Input type="search" placeholder="Search" />
             <Search style={{ color: "white", fontSize: 24 }} />
           </SearchContainer>
-          <Link to="/register">
-            <MenuItem>
-              <Buttons>Register</Buttons>
-            </MenuItem>
-          </Link>
-          <Link to="/login">
-            <MenuItem>
-              <Buttons>LogIn</Buttons>
-            </MenuItem>
-          </Link>
-          <Badge badgeContent={1} color="secondary">
-            <ShoppingCartOutlined />
-          </Badge>
+          <MenuItem onClick={handleLogout}>
+            <Buttons>LogOut</Buttons>
+          </MenuItem>
+          <MenuItem>
+            <Badge badgeContent={1} color="secondary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </MenuItem>
         </Right>
       </Wrapper>
     </Container>
   );
 };
 
-export default Navbar;
+export default LogoutNavbar;

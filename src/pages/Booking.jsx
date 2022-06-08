@@ -1,6 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -62,26 +63,68 @@ const Button = styled.button`
   color: white;
   margin: 5px;
 `;
+const Back = styled.button`
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #1c1c1c;
+  color: white;
+  margin: 5px;
+`;
 
 const Booking = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_hn1w1lr",
+        "template_yelm3oe",
+        form.current,
+        "2Eef6riUuAKD01Njd"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("Email sent!");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <Container>
       <Wrapper>
+        <h5>
+          <Link to="/">
+            <Back>Home</Back>
+          </Link>
+        </h5>
+
         <Title> Book an Appointment </Title>
-        <Form>
-          <Input placeholder="Name" />
-          <Input placeholder="Last Name" />
-          <Input placeholder="Email" />
+        <Form ref={form} onSubmit={sendEmail}>
+          <Input placeholder="Name" name="first_name" />
+          <Input placeholder="Last Name" name="last_name" />
+          <Input placeholder="Email" name="email" />
           <p>Enter Booking Date</p>
-          <Input type="date" placeholder="Booking date" />
-          <Input placeholder="Reason for booking" />
+          <Input type="date" placeholder="Booking date" name="date" />
+          <Input placeholder="Reason for booking" name="message" />
 
           <Agreement>
             You can cancel or update booking via the confirmation email sent to
             you.
           </Agreement>
 
-          <Button>Submit</Button>
+          <Button value="send">Submit</Button>
         </Form>
       </Wrapper>
     </Container>

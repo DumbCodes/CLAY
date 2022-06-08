@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 // Left Side
 
 const Left = styled.div`
-  flex: 1;
+  flex: 0.3;
   width: 100%;
   height: 100%;
 `;
@@ -26,10 +26,10 @@ const Left = styled.div`
 const Right = styled.div`
   width: 100%;
   height: 100%;
-  flex: 1;
+  flex: 1.7;
 `;
 const Title = styled.h1`
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 100px;
   margin-left: 20px;
 `;
